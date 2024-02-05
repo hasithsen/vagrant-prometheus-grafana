@@ -1,0 +1,11 @@
+---
+- name: Run a play using the collections keyword
+  hosts: vagrant_prometheus_grafana
+  become: true
+  roles:
+    - role: prometheus.prometheus.prometheus
+      tags: prometheus
+    - role: prometheus.prometheus.node_exporter
+      tags: prometheus
+    - role: setup_grafana
+      tags: grafana
